@@ -1,0 +1,77 @@
+---
+import { nav, site } from '../data/content';
+---
+
+<header class="nav dark">
+  <div class="container nav-inner">
+    <a class="brand" href="#top">{site.name}</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        {
+          nav.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    border-bottom: 1px solid var(--line-dark);
+  }
+
+  .nav-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem 1.5rem;
+    padding-block: 0.5rem;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    min-height: 44px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--on-dark-heading);
+    text-decoration: none;
+  }
+
+  .brand::before {
+    content: '';
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.25rem;
+    margin-inline: -0.75rem;
+  }
+
+  .nav-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-inline: 0.75rem;
+    font-weight: 500;
+    font-size: 0.975rem;
+    color: var(--on-dark-body);
+    text-decoration: none;
+  }
+
+  .nav-links a:hover {
+    color: var(--accent);
+  }
+</style>

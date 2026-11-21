@@ -1,0 +1,63 @@
+---
+import { impact } from '../data/content';
+---
+
+<section class="impact" aria-label="Impact at a glance">
+  <ul class="container impact-list">
+    {
+      impact.map((item) => (
+        <li>
+          <span class="value">{item.value}</span>
+          <span class="label">{item.label}</span>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .impact {
+    background: var(--band);
+    color: var(--on-dark-body);
+    padding-block: 2.5rem;
+  }
+
+  .impact-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .value {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(1.625rem, 3vw, 2rem);
+    color: var(--accent);
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .label {
+    font-size: 0.9375rem;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 900px) {
+    .impact-list {
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 2rem;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .impact-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

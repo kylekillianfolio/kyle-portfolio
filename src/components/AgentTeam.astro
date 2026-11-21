@@ -1,0 +1,236 @@
+---
+import { aiBuilds } from '../data/content';
+const { me, chief, specialists } = aiBuilds;
+---
+
+<section id="ai-builds" aria-labelledby="ai-heading">
+  <div class="dark section diagram-section">
+    <div class="container">
+      <p class="eyebrow">{aiBuilds.eyebrow}</p>
+      <h2 id="ai-heading" class="section-heading">{aiBuilds.heading}</h2>
+      <p class="intro">{aiBuilds.intro}</p>
+
+      <figure class="diagram">
+        <figcaption class="visually-hidden">
+          Diagram: I direct a Chief of Staff agent, which routes work to seven specialist agents.
+        </figcaption>
+        <div class="node node-me">
+          <span class="node-name">{me.name}</span>
+          <span class="node-role">{me.role}</span>
+        </div>
+        <div class="connector" aria-hidden="true"></div>
+        <div class="node node-chief">
+          <span class="node-name">{chief.name}</span>
+          <span class="node-role">{chief.role}</span>
+        </div>
+        <div class="connector" aria-hidden="true"></div>
+        <div class="bus" aria-hidden="true"></div>
+        <ul class="specialists" aria-label="Specialist agents">
+          {
+            specialists.map((s) => (
+              <li class="node node-specialist">
+                <span class="node-name">{s.name}</span>
+                <span class="node-role">{s.role}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </figure>
+    </div>
+  </div>
+
+  <div class="section light principles-section">
+    <div class="container">
+      <h3 class="principles-heading">{aiBuilds.principlesHeading}</h3>
+      <ul class="principles">
+        {
+          aiBuilds.principles.map((p) => (
+            <li class="principle">
+              <h4>{p.title}</h4>
+              <p>{p.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .intro {
+    max-width: 60ch;
+    font-size: 1.125rem;
+  }
+
+  /* Diagram */
+  .diagram {
+    margin: 3rem 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .node {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+  }
+
+  .node-name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.0625rem;
+    color: var(--on-dark-heading);
+  }
+
+  .node-role {
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  .node-me {
+    border: 2px solid var(--on-dark-body);
+    min-width: 13rem;
+  }
+
+  .node-chief {
+    background: var(--accent);
+    min-width: 18rem;
+    max-width: 22rem;
+  }
+
+  .node-chief .node-name,
+  .node-chief .node-role {
+    color: var(--ground);
+  }
+
+  .node-chief .node-name {
+    font-size: 1.25rem;
+  }
+
+  .connector {
+    width: 2px;
+    height: 2rem;
+    background: var(--line-dark);
+  }
+
+  .bus {
+    width: calc(100% - 100% / 7);
+    height: 2px;
+    background: var(--line-dark);
+  }
+
+  .specialists {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.75rem;
+  }
+
+  .node-specialist {
+    position: relative;
+    background: var(--band);
+    border: 1px solid var(--line-dark);
+    margin-top: 1.25rem;
+    padding: 1rem 0.75rem;
+  }
+
+  /* Vertical drop from the bus to each card */
+  .node-specialist::before {
+    content: '';
+    position: absolute;
+    top: calc(-1.25rem - 1px);
+    left: 50%;
+    width: 2px;
+    height: 1.25rem;
+    background: var(--line-dark);
+    transform: translateX(-50%);
+  }
+
+  .node-specialist .node-name {
+    font-size: 0.975rem;
+  }
+
+  @media (max-width: 1000px) {
+    .bus {
+      display: none;
+    }
+
+    .specialists {
+      grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+      padding-top: 1.5rem;
+      border-top: 2px solid var(--line-dark);
+    }
+
+    .node-specialist {
+      margin-top: 0;
+    }
+
+    .node-specialist::before {
+      display: none;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .node-chief,
+    .node-me {
+      min-width: 0;
+      width: 100%;
+    }
+  }
+
+  /* Principles */
+  .principles-heading {
+    font-size: clamp(1.625rem, 3.5vw, 2.125rem);
+    margin-bottom: 2rem;
+  }
+
+  .principles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .principle {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+  }
+
+  .principle::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+
+  h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1875rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .principle p {
+    color: var(--muted);
+    font-size: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .principles {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .principles {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

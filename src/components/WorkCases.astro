@@ -1,0 +1,151 @@
+---
+import { work } from '../data/content';
+---
+
+<section id="work" class="section light" aria-labelledby="work-heading">
+  <div class="container">
+    <p class="eyebrow">{work.eyebrow}</p>
+    <h2 id="work-heading" class="section-heading">{work.heading}</h2>
+
+    <ol class="cases">
+      {
+        work.cases.map((c, i) => (
+          <li>
+            <article class="case" aria-labelledby={`case-${i + 1}`}>
+              <header class="case-head">
+                <span class="case-num" aria-hidden="true">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  {c.tag && <p class="tag">{c.tag}</p>}
+                  <h3 id={`case-${i + 1}`}>{c.title}</h3>
+                  <p class="nutshell">
+                    <span class="nutshell-label">In a nutshell:</span> {c.nutshell}
+                  </p>
+                </div>
+              </header>
+              <dl class="case-cols">
+                <div>
+                  <dt>The challenge</dt>
+                  <dd>{c.challenge}</dd>
+                </div>
+                <div>
+                  <dt>{c.actionLabel}</dt>
+                  <dd>{c.action}</dd>
+                </div>
+                <div class="results">
+                  <dt>Key results</dt>
+                  <dd set:html={c.results} />
+                </div>
+              </dl>
+            </article>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .cases {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .case {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .case-head {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+    padding-bottom: 1.75rem;
+    margin-bottom: 1.75rem;
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  .case-num {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--accent-text);
+    padding-top: 0.2rem;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--accent-text);
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    padding: 0.2rem 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  h3 {
+    font-size: clamp(1.375rem, 3vw, 1.75rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .nutshell {
+    color: var(--muted);
+    max-width: 70ch;
+  }
+
+  .nutshell-label {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .case-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 0;
+  }
+
+  dt {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin-bottom: 0.5rem;
+  }
+
+  dd {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--muted);
+  }
+
+  .results dd {
+    color: var(--ink);
+  }
+
+  .results :global(strong) {
+    color: var(--ink);
+  }
+
+  @media (max-width: 860px) {
+    .case-cols {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .case-head {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+  }
+</style>

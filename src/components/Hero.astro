@@ -1,0 +1,58 @@
+---
+import { hero, site } from '../data/content';
+---
+
+<section class="hero dark" aria-labelledby="hero-heading">
+  <div class="container">
+    <p class="eyebrow">{hero.eyebrow}</p>
+    <h1 id="hero-heading">{hero.headline}</h1>
+    <p class="bio">{hero.bio}</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#work">See my work</a>
+      <a class="btn btn-ghost" href={site.linkedin}>LinkedIn</a>
+      <a class="btn btn-ghost" href={site.resume}>Résumé</a>
+    </div>
+    <p class="status"><span class="dot" aria-hidden="true"></span>{hero.status}</p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-block: clamp(4rem, 10vw, 7.5rem) clamp(3.5rem, 8vw, 6rem);
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 6vw, 4rem);
+    max-width: 20ch;
+    margin-bottom: 1.5rem;
+  }
+
+  .bio {
+    max-width: 62ch;
+    font-size: clamp(1.0625rem, 2vw, 1.1875rem);
+    margin-bottom: 2.25rem;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .status {
+    display: flex;
+    align-items: baseline;
+    gap: 0.625rem;
+    font-size: 0.9375rem;
+  }
+
+  .dot {
+    flex: none;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--accent);
+    transform: translateY(-0.1em);
+  }
+</style>

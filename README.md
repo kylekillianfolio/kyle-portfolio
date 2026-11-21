@@ -1,0 +1,49 @@
+# Kyle Killian — product portfolio
+
+The source for my portfolio site: a single page covering my product work, the 8-agent Claude team I run my work with, and my experience. I'm a Senior Product Owner building AI into manufacturing software, and into how product teams work.
+
+## Stack
+
+- **[Astro](https://astro.build)** with static output. It ships zero client-side JavaScript.
+- **Plain CSS**: design tokens in `src/styles/global.css` and scoped styles in each component. No UI framework.
+- **Fonts**: Space Grotesk for headings, Inter for body, both from Google Fonts.
+- **Hosting**: Vercel, deployed from this repo.
+- No analytics or tracking scripts.
+
+Lighthouse (mobile): 100 performance, 100 accessibility, 100 best practices, 100 SEO.
+
+## Project layout
+
+```
+src/
+  data/content.ts       All site copy in one place
+  layouts/Base.astro    <head>, meta and Open Graph tags, fonts
+  components/           One component per page section
+  pages/index.astro     Assembles the sections
+  styles/global.css     Design tokens and shared styles
+scripts/og-image.mjs    Generates the share image and PNG favicons
+public/                 Static files: résumé PDF, icons, share image
+```
+
+The agent-team diagram in `AgentTeam.astro` is built from HTML and CSS rather than an image, so it stays sharp, responsive and readable by screen readers.
+
+## Run it locally
+
+You need Node 20 or newer.
+
+```bash
+npm install
+npm run dev        # http://localhost:4321
+npm run build      # production build to dist/
+npm run preview    # serve the production build
+npm run og         # regenerate og-image.png and the PNG favicons
+```
+
+## How I built this with Claude Code
+
+I wrote two documents: a build brief (stack, design tokens, accessibility and performance targets, content rules) and the site copy. Then I handed both to Claude Code and asked it to build the site.
+
+- **The brief was the spec.** It set the constraints up front: the color tokens, WCAG AA contrast, 44px touch targets, Lighthouse 95+, no invented metrics, and no internal system names. That gave Claude Code a clear definition of done.
+- **Copy stayed separate from code.** All text lives in `src/data/content.ts`, taken verbatim from my content doc, so the words are easy to check against the source.
+- **It checked its own work.** Claude Code ran the production build, viewed the page at desktop and phone widths in a browser, measured touch targets and horizontal overflow, and ran Lighthouse before calling it done.
+- **I kept the decisions.** I set direction, content and guardrails. Claude Code did the build. That's the same way I run my agent team.

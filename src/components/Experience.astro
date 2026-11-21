@@ -1,0 +1,90 @@
+---
+import { experience } from '../data/content';
+---
+
+<section id="experience" class="section light experience" aria-labelledby="exp-heading">
+  <div class="container">
+    <p class="eyebrow">{experience.eyebrow}</p>
+    <h2 id="exp-heading" class="section-heading">{experience.heading}</h2>
+
+    <ol class="roles">
+      {
+        experience.roles.map((r) => (
+          <li class="role">
+            <div>
+              <h3>{r.company}</h3>
+              <p class="title">{r.title}</p>
+            </div>
+            <p class="dates">{r.dates}</p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="credentials">
+      <h3 class="visually-hidden">Credentials</h3>
+      <ul>
+        {experience.credentials.map((c) => <li>{c}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .experience {
+    padding-top: 0;
+  }
+
+  .roles {
+    margin-top: 2.5rem;
+    border-top: 1px solid var(--card-border);
+  }
+
+  .role {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem 2rem;
+    padding-block: 1.5rem;
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .title {
+    color: var(--muted);
+  }
+
+  .dates {
+    flex: none;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .credentials ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    margin-top: 2rem;
+  }
+
+  .credentials li {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  @media (max-width: 640px) {
+    .role {
+      flex-direction: column;
+    }
+  }
+</style>
