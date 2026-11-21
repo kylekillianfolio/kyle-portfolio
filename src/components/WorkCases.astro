@@ -23,6 +23,10 @@ import { work } from '../data/content';
                     <span class="nutshell-label">In a nutshell:</span> {c.nutshell}
                   </p>
                 </div>
+                <p class="highlight">
+                  <span class="highlight-value">{c.highlight.value}</span>
+                  <span class="highlight-label">{c.highlight.label}</span>
+                </p>
               </header>
               <dl class="case-cols">
                 <div>
@@ -62,8 +66,9 @@ import { work } from '../data/content';
 
   .case-head {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1.25rem;
+    grid-template-columns: auto 1fr auto;
+    align-items: start;
+    gap: 1.25rem 2rem;
     padding-bottom: 1.75rem;
     margin-bottom: 1.75rem;
     border-bottom: 1px solid var(--card-border);
@@ -75,6 +80,33 @@ import { work } from '../data/content';
     font-size: 1.125rem;
     color: var(--accent-text);
     padding-top: 0.2rem;
+  }
+
+  .highlight {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 11rem;
+    max-width: 14rem;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--accent);
+    background: var(--body-ground);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .highlight-value {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+    line-height: 1.05;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .highlight-label {
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    color: var(--muted);
   }
 
   .tag {
@@ -140,12 +172,26 @@ import { work } from '../data/content';
       grid-template-columns: 1fr;
       gap: 1.5rem;
     }
+
+    .case-head {
+      grid-template-columns: auto 1fr;
+    }
+
+    .highlight {
+      grid-column: 2;
+      max-width: none;
+    }
   }
 
   @media (max-width: 480px) {
     .case-head {
       grid-template-columns: 1fr;
       gap: 0.5rem;
+    }
+
+    .highlight {
+      grid-column: 1;
+      margin-top: 0.75rem;
     }
   }
 </style>

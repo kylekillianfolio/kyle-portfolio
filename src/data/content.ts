@@ -41,6 +41,8 @@ export interface WorkCase {
   actionLabel: 'What I built' | 'What I did';
   action: string;
   results: string; // html
+  // Headline result shown large at the top of the card. Uses figures from `results` only.
+  highlight: { value: string; label: string };
 }
 
 export const work = {
@@ -48,6 +50,7 @@ export const work = {
   heading: 'Four problems, and what changed',
   cases: [
     {
+      highlight: { value: '12–15 hrs', label: 'saved per week' },
       title: 'AI Product Command Center → an 8-agent team',
       tag: '2026 AI Impact Award',
       nutshell:
@@ -61,6 +64,7 @@ export const work = {
         "<strong>12–15 hours saved per week.</strong> <strong>2x throughput</strong> on specs and decisions. Recognized with the company's <strong>2026 AI Impact Award</strong>.",
     },
     {
+      highlight: { value: 'April 2026', label: 'Advantive ONE launched publicly' },
       title: 'AI for manufacturing quality',
       nutshell:
         'bringing AI insights, agents and predictive intelligence to the InfinityQS and PQ Systems quality (SPC) products.',
@@ -73,6 +77,7 @@ export const work = {
         'AI agents, workflows and predictive intelligence <strong>shipping to customers</strong> as part of <strong>Advantive ONE</strong>, launched publicly in <strong>April 2026</strong> as a unified intelligence layer across operational, financial and quality data.',
     },
     {
+      highlight: { value: '8 → 16', label: 'core brands' },
       title: 'Scaling a portfolio through acquisitions',
       nutshell:
         'helped the portfolio grow from 8 to 16 core brands by making acquired products and teams work as one.',
@@ -85,6 +90,7 @@ export const work = {
         '<strong>8 → 16 core brands</strong>. <strong>20% faster</strong> product owner ramp-up. Supported a <strong>$219M</strong> billings-based revenue base.',
     },
     {
+      highlight: { value: 'Phase 1', label: 'built and tested' },
       title: 'A privacy-first hall pass for schools',
       tag: 'Independent product · Pre-launch',
       nutshell:
