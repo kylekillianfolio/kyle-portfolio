@@ -29,20 +29,10 @@ import Shot from './Shot.astro';
                   <span class="highlight-label">{c.highlight.label}</span>
                 </p>
               </header>
-              <dl class="case-cols">
-                <div>
-                  <dt>The challenge</dt>
-                  <dd>{c.challenge}</dd>
-                </div>
-                <div>
-                  <dt>{c.actionLabel}</dt>
-                  <dd>{c.action}</dd>
-                </div>
-                <div class="results">
-                  <dt>Key results</dt>
-                  <dd set:html={c.results} />
-                </div>
-              </dl>
+              <div class="results">
+                <p class="label">Key results</p>
+                <p set:html={c.results} />
+              </div>
               {c.shots && (
                 <div class="case-shots">
                   <div class:list={['shots-grid', { pair: c.shots.length > 1 }]}>
@@ -53,6 +43,19 @@ import Shot from './Shot.astro';
                   {c.shotsCaption && <p class="shots-caption">{c.shotsCaption}</p>}
                 </div>
               )}
+              <details class="more">
+                <summary>Read the full case</summary>
+                <dl class="case-cols">
+                  <div>
+                    <dt>The challenge</dt>
+                    <dd>{c.challenge}</dd>
+                  </div>
+                  <div>
+                    <dt>{c.actionLabel}</dt>
+                    <dd>{c.action}</dd>
+                  </div>
+                </dl>
+              </details>
             </article>
           </li>
         ))
@@ -149,11 +152,12 @@ import Shot from './Shot.astro';
 
   .case-cols {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin: 0;
+    margin: 1.25rem 0 0;
   }
 
+  .results .label,
   dt {
     font-family: var(--font-heading);
     font-size: 0.8125rem;
@@ -170,18 +174,54 @@ import Shot from './Shot.astro';
     color: var(--muted);
   }
 
-  .results dd {
+  .results p:not(.label) {
+    font-size: 1.0625rem;
     color: var(--ink);
-  }
-
-  .results :global(strong) {
-    color: var(--ink);
+    max-width: 75ch;
   }
 
   .case-shots {
-    margin-top: 2rem;
-    padding-top: 2rem;
+    margin-top: 1.75rem;
+  }
+
+  /* "Read the full case" disclosure */
+  .more {
+    margin-top: 1.5rem;
     border-top: 1px solid var(--card-border);
+  }
+
+  .more summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    margin-top: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-text);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .more summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .more summary::after {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-0.15rem) rotate(45deg);
+    transition: transform 0.15s ease;
+  }
+
+  .more[open] summary::after {
+    transform: translateY(0.1rem) rotate(-135deg);
+  }
+
+  .more summary:hover {
+    text-decoration: underline;
   }
 
   .shots-grid {

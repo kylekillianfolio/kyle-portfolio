@@ -21,7 +21,8 @@ export const nav = [
 export const hero = {
   eyebrow: 'Agentic AI · Product Leadership · B2B SaaS',
   headline: 'Building AI into manufacturing software, and into how product teams work.',
-  bio: "I'm a Senior Product Owner at Advantive with 8+ years in B2B SaaS, digital commerce and fintech. I've led delivery for ~$181M ARR across 5 product families and ~42 engineers in three regions, integrated 3 acquisitions, and I run my own work with an 8-agent Claude team that won a 2026 AI Impact Award.",
+  // Trimmed for scanning: the impact strip right below carries the ARR, team and acquisition numbers.
+  bio: "I'm a Senior Product Owner at Advantive with 8+ years in B2B SaaS, digital commerce and fintech, and I run my own work with an 8-agent Claude team that won a 2026 AI Impact Award.",
   status: 'Open to AI product and product leadership roles · St. Augustine, FL · Remote',
 };
 
@@ -59,7 +60,7 @@ export const work = {
           alt: 'Command Center prototype: panels for today, blockers, release health, competitive intelligence and a living roadmap, with a strip showing what the agent team did this morning.',
         },
       ],
-      shotsCaption: 'The Command Center. Illustrative recreation with placeholder data.',
+      shotsCaption: "Generic recreation with placeholder data. The real one runs on company systems I can't show.",
       highlight: { value: '12–15 hrs', label: 'saved per week' },
       title: 'AI Product Command Center → an 8-agent team',
       tag: '2026 AI Impact Award',
@@ -110,7 +111,7 @@ export const work = {
           alt: "Teacher dashboard prototype: who is out right now, pass counts and times, and today's activity, with an Emergency button.",
         },
       ],
-      shotsCaption: 'Student kiosk and teacher dashboard. Illustrative recreation with placeholder data.',
+      shotsCaption: 'Generic recreation with placeholder names, to protect student privacy before launch.',
       highlight: { value: 'Phase 1', label: 'built and tested' },
       title: 'A privacy-first hall pass for schools',
       tag: 'Independent product · Pre-launch',
@@ -146,7 +147,7 @@ export const aiBuilds = {
   contextShot: {
     name: 'agent-guardrails',
     alt: 'Diagram of how the agents get context: files I own, memory that scheduled jobs keep current, and live systems they can only read, feeding every job run. Beside it, five guardrails built into every prompt.',
-    caption: 'How the agents get context, and the guardrails in every prompt. Illustrative recreation with placeholder data.',
+    caption: "Generic recreation. The real system runs on company systems and data I can't show.",
   },
   principlesHeading: 'How I build with AI',
   principles: [
