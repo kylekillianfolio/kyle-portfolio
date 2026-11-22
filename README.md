@@ -6,7 +6,7 @@ The source for my portfolio site: a single page covering my product work, the 8-
 
 ## Stack
 
-- **[Astro](https://astro.build)** with static output. It ships zero client-side JavaScript.
+- **[Astro](https://astro.build)** with static output. The only client-side JavaScript is a small script for the case-study tabs, and every case still shows without it.
 - **Plain CSS**: design tokens in `src/styles/global.css` and scoped styles in each component. No UI framework.
 - **Fonts**: Space Grotesk for headings, Inter for body, both from Google Fonts.
 - **Hosting**: Vercel, deployed from this repo.
@@ -51,7 +51,7 @@ npm run prototypes # re-render the prototype screenshots (needs Chrome)
 I wrote two documents: a build brief (stack, design tokens, accessibility and performance targets, content rules) and the site copy. Then I handed both to Claude Code and asked it to build the site.
 
 - **The brief was the spec.** It set the constraints up front: the color tokens, WCAG AA contrast, 44px touch targets, Lighthouse 95+, no invented metrics, and no internal system names. That gave Claude Code a clear definition of done.
-- **Copy stayed separate from code.** All text lives in `src/data/content.ts`, taken verbatim from my content doc, so the words are easy to check against the source.
+- **Copy stayed separate from code.** All text lives in `src/data/content.ts`, based on my content doc and trimmed so each fact appears once per view.
 - **It checked its own work.** Claude Code ran the production build, viewed the page at desktop and phone widths in a browser, measured touch targets and horizontal overflow, and ran Lighthouse before calling it done.
 - **I kept the decisions.** I set direction, content and guardrails. Claude Code did the build. That's the same way I run my agent team.
 

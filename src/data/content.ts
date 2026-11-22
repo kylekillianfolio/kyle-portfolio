@@ -1,4 +1,5 @@
-// All site copy lives here, taken verbatim from portfolio-content.md.
+// All site copy lives here. Based on portfolio-content.md, trimmed so each fact appears once
+// per view: the big highlight number is not repeated in the results line below it.
 // Strings marked `html` contain inline <strong> emphasis only.
 
 export const site = {
@@ -13,7 +14,7 @@ export const site = {
 
 export const nav = [
   { label: 'Work', href: '#work' },
-  { label: 'AI Builds', href: '#ai-builds' },
+  { label: 'Agent team', href: '#agent-team' },
   { label: 'Experience', href: '#experience' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -35,11 +36,11 @@ export const impact = [
 ];
 
 export interface WorkCase {
+  tabLabel: string; // short name on the case tab
   title: string;
   tag?: string;
   nutshell: string;
   challenge: string;
-  actionLabel: 'What I built' | 'What I did';
   action: string;
   results: string; // html
   // Headline result shown large at the top of the card. Uses figures from `results` only.
@@ -50,7 +51,7 @@ export interface WorkCase {
 }
 
 export const work = {
-  eyebrow: 'Work cases',
+  eyebrow: 'Selected work',
   heading: 'Four problems, and what changed',
   cases: [
     {
@@ -62,43 +63,43 @@ export const work = {
       ],
       shotsCaption: "Generic recreation with placeholder data. The real one runs on company systems I can't show.",
       highlight: { value: '12–15 hrs', label: 'saved per week' },
+      tabLabel: 'Command Center',
       title: 'AI Product Command Center → an 8-agent team',
       tag: '2026 AI Impact Award',
       nutshell:
         'I turned my own product workload into an orchestrated team of Claude agents, then rebuilt it in two months.',
       challenge:
         'One product owner carrying backlogs, releases, competitive tracking and stakeholder updates for global teams in three regions.',
-      actionLabel: 'What I built',
       action:
         'A Command Center combining calendar, blockers, release health, competitive intelligence and a living roadmap, kept current by scheduled automation. Then a Chief of Staff agent orchestrating 7 specialists, each with a charter and hand-offs, token-efficient context and a UI for visibility.',
       results:
-        "<strong>12–15 hours saved per week.</strong> <strong>2x throughput</strong> on specs and decisions. Recognized with the company's <strong>2026 AI Impact Award</strong>.",
+        '<strong>2x throughput</strong> on specs and decisions.',
     },
     {
       highlight: { value: 'April 2026', label: 'Advantive ONE launched publicly' },
+      tabLabel: 'Quality AI',
       title: 'AI for manufacturing quality',
       nutshell:
-        'bringing AI insights, agents and predictive intelligence to the InfinityQS and PQ Systems quality (SPC) products.',
+        'Bringing AI insights, agents and predictive intelligence to the InfinityQS and PQ Systems quality (SPC) products.',
       challenge:
         'Quality data spread across product families had to become useful, connected AI capabilities for specialty manufacturers.',
-      actionLabel: 'What I did',
       action:
         'Own delivery of AI data insights, workspaces, agents, workflows and predictive intelligence through the Advantive ONE intelligence platform.',
       results:
-        'AI agents, workflows and predictive intelligence <strong>shipping to customers</strong> as part of <strong>Advantive ONE</strong>, launched publicly in <strong>April 2026</strong> as a unified intelligence layer across operational, financial and quality data.',
+        'AI agents, workflows and predictive intelligence <strong>shipping to customers</strong> as part of <strong>Advantive ONE</strong>, a unified intelligence layer across operational, financial and quality data.',
     },
     {
       highlight: { value: '8 → 16', label: 'core brands' },
+      tabLabel: 'Acquisitions',
       title: 'Scaling a portfolio through acquisitions',
       nutshell:
-        'helped the portfolio grow from 8 to 16 core brands by making acquired products and teams work as one.',
+        'Made acquired products and teams work as one.',
       challenge:
         'Acquired legacy products arrived with fragmented practices, and new product owners needed to get productive fast.',
-      actionLabel: 'What I did',
       action:
         "Product management lead for 3 acquisitions; wrote the company's integration playbook; moved acquired teams to Scrum and products from sustainment to modernization; built a Product Owner Bootcamp.",
       results:
-        '<strong>8 → 16 core brands</strong>. <strong>20% faster</strong> product owner ramp-up. Supported a <strong>$219M</strong> billings-based revenue base.',
+        '<strong>20% faster</strong> product owner ramp-up. Supported a <strong>$219M</strong> billings-based revenue base.',
     },
     {
       shots: [
@@ -112,27 +113,25 @@ export const work = {
         },
       ],
       shotsCaption: 'Generic recreation with placeholder names, to protect student privacy before launch.',
-      highlight: { value: 'Phase 1', label: 'built and tested' },
+      highlight: { value: 'Zero', label: 'readable student data stored' },
+      tabLabel: 'Hall pass',
       title: 'A privacy-first hall pass for schools',
       tag: 'Independent product · Pre-launch',
       nutshell:
-        "a teacher's idea, taken from concept to a deployed web app, so students can leave class without interrupting it.",
+        "A teacher's idea, taken from concept to a deployed web app, so students can leave class without interrupting it.",
       challenge:
         'Every hall pass pulled a teacher out of instruction, paper logs failed during lockdowns and drills, and schools are wary of vendors holding student data.',
-      actionLabel: 'What I built',
       action:
         "A student sign-out kiosk, live staff board, reports and lockdown snapshot, built with Claude, Next.js, Supabase and Vercel. Student names are encrypted in the school's own browser, and the interface adapts by grade band, from picture-and-audio for early readers to a fast flow for high schoolers.",
       results:
-        '<strong>Phase 1 built and tested</strong>. A design where the service <strong>stores no readable student data</strong> and holds none of the keys. Launch and go-to-market underway.',
+        '<strong>Phase 1 built and tested</strong>, and the service holds none of the encryption keys. Launch and go-to-market underway.',
     },
   ] satisfies WorkCase[],
 };
 
 export const aiBuilds = {
-  eyebrow: 'AI builds',
+  eyebrow: 'Agent team',
   heading: 'My 8-agent AI team',
-  intro:
-    'I set direction. A Chief of Staff agent routes work to seven specialists and assembles what comes back.',
   me: { name: 'Me', role: 'direction & decisions' },
   chief: { name: 'Chief of Staff', role: 'Orchestrates, routes hand-offs, keeps context lean' },
   specialists: [
@@ -149,31 +148,19 @@ export const aiBuilds = {
     alt: 'Diagram of how the agents get context: files I own, memory that scheduled jobs keep current, and live systems they can only read, feeding every job run. Beside it, five guardrails built into every prompt.',
     caption: "Generic recreation. The real system runs on company systems and data I can't show.",
   },
-  principlesHeading: 'How I build with AI',
+  principlesHeading: 'Operating principles',
   principles: [
     {
       title: 'Charters and hand-offs',
       body: 'Every agent has one job, a written charter and a defined hand-off, so work moves cleanly between them.',
     },
     {
-      title: 'The right context',
-      body: 'Agents are grounded in a curated knowledge base, and each works from the context it needs and nothing more. Accuracy goes up and token cost comes down.',
-    },
-    {
       title: 'Connected to live data',
       body: 'Custom MCP connectors I built, plus prebuilt ones, link agents to roadmap, delivery and CRM tools, so they work from live data instead of stale copies.',
     },
     {
-      title: 'Guardrails first',
-      body: 'Written instructions and guardrails define what each agent can access, what it can change, and when it hands a decision back to me.',
-    },
-    {
       title: 'Scheduled, not prompted',
       body: 'Skills and scheduled tasks keep the system current without someone having to ask.',
-    },
-    {
-      title: 'Visible by design',
-      body: 'A UI shows what each agent is doing, so the output is easy to trust and check.',
     },
   ],
 };

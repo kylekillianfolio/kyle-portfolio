@@ -1,6 +1,8 @@
 ---
 import { work } from '../data/content';
 import Shot from './Shot.astro';
+
+const num = (i: number) => String(i + 1).padStart(2, '0');
 ---
 
 <section id="work" class="section light" aria-labelledby="work-heading">
@@ -8,66 +10,226 @@ import Shot from './Shot.astro';
     <p class="eyebrow">{work.eyebrow}</p>
     <h2 id="work-heading" class="section-heading">{work.heading}</h2>
 
-    <ol class="cases">
+    <!--
+      Progressive enhancement: without JavaScript every case shows, stacked.
+      The script below reveals the tab list and shows one case at a time.
+    -->
+    <div class="tabs" role="tablist" aria-label="Work cases" hidden>
       {
         work.cases.map((c, i) => (
-          <li>
-            <article class="case" aria-labelledby={`case-${i + 1}`}>
-              <header class="case-head">
-                <span class="case-num" aria-hidden="true">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <div>
-                  {c.tag && <p class="tag">{c.tag}</p>}
-                  <h3 id={`case-${i + 1}`}>{c.title}</h3>
-                  <p class="nutshell">
-                    <span class="nutshell-label">In a nutshell:</span> {c.nutshell}
-                  </p>
-                </div>
-                <p class="highlight">
-                  <span class="highlight-value">{c.highlight.value}</span>
-                  <span class="highlight-label">{c.highlight.label}</span>
-                </p>
-              </header>
-              <div class="results">
-                <p class="label">Key results</p>
-                <p set:html={c.results} />
-              </div>
-              {c.shots && (
-                <div class="case-shots">
-                  <div class:list={['shots-grid', { pair: c.shots.length > 1 }]}>
-                    {c.shots.map((s) => (
-                      <Shot name={s.name} alt={s.alt} />
-                    ))}
-                  </div>
-                  {c.shotsCaption && <p class="shots-caption">{c.shotsCaption}</p>}
-                </div>
-              )}
-              <details class="more">
-                <summary>Read the full case</summary>
-                <dl class="case-cols">
-                  <div>
-                    <dt>The challenge</dt>
-                    <dd>{c.challenge}</dd>
-                  </div>
-                  <div>
-                    <dt>{c.actionLabel}</dt>
-                    <dd>{c.action}</dd>
-                  </div>
-                </dl>
-              </details>
-            </article>
-          </li>
+          <button
+            type="button"
+            role="tab"
+            id={`case-tab-${i + 1}`}
+            aria-controls={`case-panel-${i + 1}`}
+            aria-selected={i === 0 ? 'true' : 'false'}
+            tabindex={i === 0 ? 0 : -1}
+            class="tab"
+          >
+            <span class="tab-num">{num(i)}</span>
+            <span class="tab-name">{c.tabLabel}</span>
+            <span class="tab-metric">{c.highlight.value}</span>
+          </button>
         ))
       }
-    </ol>
+    </div>
+
+    <div class="cases">
+      {
+        work.cases.map((c, i) => (
+          <div
+            class="case"
+            id={`case-panel-${i + 1}`}
+            aria-labelledby={`case-title-${i + 1}`}
+            data-panel
+          >
+            <header class="case-head">
+              <div>
+                {c.tag && <p class="tag">{c.tag}</p>}
+                <h3 id={`case-title-${i + 1}`}>{c.title}</h3>
+                <p class="nutshell">{c.nutshell}</p>
+              </div>
+              <p class="highlight">
+                <span class="highlight-value">{c.highlight.value}</span>
+                <span class="highlight-label">{c.highlight.label}</span>
+              </p>
+            </header>
+
+            <div class="results">
+              <p class="label">Outcome</p>
+              <p set:html={c.results} />
+            </div>
+
+            {c.shots && (
+              <div class="case-shots">
+                <div class:list={['shots-grid', { pair: c.shots.length > 1 }]}>
+                  {c.shots.map((s) => (
+                    <Shot name={s.name} alt={s.alt} />
+                  ))}
+                </div>
+                {c.shotsCaption && <p class="shots-caption">{c.shotsCaption}</p>}
+              </div>
+            )}
+
+            <details class="more">
+              <summary>The problem and how I solved it</summary>
+              <dl class="case-cols">
+                <div>
+                  <dt>The problem</dt>
+                  <dd>{c.challenge}</dd>
+                </div>
+                <div>
+                  <dt>How I solved it</dt>
+                  <dd>{c.action}</dd>
+                </div>
+              </dl>
+            </details>
+
+            {i < work.cases.length - 1 && (
+              <button type="button" class="next" data-next={i + 1} hidden>
+                Next: {work.cases[i + 1].tabLabel}
+                <span aria-hidden="true">→</span>
+              </button>
+            )}
+          </div>
+        ))
+      }
+    </div>
   </div>
 </section>
 
+<script>
+  const tablist = document.querySelector<HTMLElement>('#work [role="tablist"]');
+  if (tablist) {
+    const tabs = Array.from(tablist.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+    const panels = Array.from(document.querySelectorAll<HTMLElement>('#work [data-panel]'));
+
+    const select = (index: number, focus = false) => {
+      tabs.forEach((tab, i) => {
+        const on = i === index;
+        tab.setAttribute('aria-selected', String(on));
+        tab.tabIndex = on ? 0 : -1;
+        panels[i].hidden = !on;
+      });
+      if (focus) tabs[index].focus();
+    };
+
+    // Turn the stacked list into tabs.
+    tablist.hidden = false;
+    panels.forEach((panel, i) => {
+      panel.setAttribute('role', 'tabpanel');
+      panel.setAttribute('aria-labelledby', tabs[i].id);
+      panel.tabIndex = 0;
+    });
+    document.querySelectorAll<HTMLButtonElement>('#work [data-next]').forEach((btn) => {
+      btn.hidden = false;
+      btn.addEventListener('click', () => {
+        select(Number(btn.dataset.next), true);
+        tablist.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      });
+    });
+    select(0);
+
+    tabs.forEach((tab, i) => tab.addEventListener('click', () => select(i)));
+    tablist.addEventListener('keydown', (e) => {
+      const current = tabs.indexOf(document.activeElement as HTMLButtonElement);
+      if (current < 0) return;
+      const last = tabs.length - 1;
+      const moves: Record<string, number> = {
+        ArrowRight: current === last ? 0 : current + 1,
+        ArrowLeft: current === 0 ? last : current - 1,
+        Home: 0,
+        End: last,
+      };
+      if (e.key in moves) {
+        e.preventDefault();
+        select(moves[e.key], true);
+      }
+    });
+  }
+</script>
+
 <style>
+  /* Tabs */
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 2.5rem;
+    scroll-margin-top: 1.5rem;
+  }
+
+  .tabs[hidden] {
+    display: none;
+  }
+
+  .tab {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      'num name'
+      'num metric';
+    column-gap: 0.75rem;
+    align-items: center;
+    text-align: left;
+    min-height: 72px;
+    padding: 0.875rem 1rem;
+    background: var(--card);
+    color: var(--ink);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    font: inherit;
+    cursor: pointer;
+    transition:
+      border-color 0.15s ease,
+      background-color 0.15s ease;
+  }
+
+  .tab:hover {
+    border-color: var(--accent-text);
+  }
+
+  .tab[aria-selected='true'] {
+    background: var(--ground);
+    border-color: var(--ground);
+    color: var(--on-dark-heading);
+  }
+
+  .tab-num {
+    grid-area: num;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--accent-text);
+  }
+
+  .tab-name {
+    grid-area: name;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  .tab-metric {
+    grid-area: metric;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+
+  .tab[aria-selected='true'] .tab-num,
+  .tab[aria-selected='true'] .tab-metric {
+    color: var(--accent);
+  }
+
+  /* Cases */
   .cases {
     display: grid;
     gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .tabs[hidden] + .cases {
     margin-top: 2.5rem;
   }
 
@@ -78,9 +240,13 @@ import Shot from './Shot.astro';
     padding: clamp(1.5rem, 4vw, 2.5rem);
   }
 
+  .case[hidden] {
+    display: none;
+  }
+
   .case-head {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr auto;
     align-items: start;
     gap: 1.25rem 2rem;
     padding-bottom: 1.75rem;
@@ -88,24 +254,15 @@ import Shot from './Shot.astro';
     border-bottom: 1px solid var(--card-border);
   }
 
-  .case-num {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.125rem;
-    color: var(--accent-text);
-    padding-top: 0.2rem;
-  }
-
   .highlight {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
     min-width: 11rem;
-    max-width: 14rem;
+    max-width: 15rem;
     padding: 1rem 1.25rem;
-    border-left: 3px solid var(--accent);
-    background: var(--body-ground);
-    border-radius: 0 12px 12px 0;
+    background: var(--ground);
+    border-radius: 12px;
   }
 
   .highlight-value {
@@ -113,14 +270,14 @@ import Shot from './Shot.astro';
     font-weight: 700;
     font-size: clamp(1.75rem, 3.5vw, 2.25rem);
     line-height: 1.05;
-    color: var(--ink);
+    color: var(--accent);
     white-space: nowrap;
   }
 
   .highlight-label {
     font-size: 0.9375rem;
     line-height: 1.4;
-    color: var(--muted);
+    color: var(--on-dark-body);
   }
 
   .tag {
@@ -142,19 +299,8 @@ import Shot from './Shot.astro';
 
   .nutshell {
     color: var(--muted);
-    max-width: 70ch;
-  }
-
-  .nutshell-label {
-    font-weight: 600;
-    color: var(--ink);
-  }
-
-  .case-cols {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin: 1.25rem 0 0;
+    font-size: 1.0625rem;
+    max-width: 65ch;
   }
 
   .results .label,
@@ -168,12 +314,6 @@ import Shot from './Shot.astro';
     margin-bottom: 0.5rem;
   }
 
-  dd {
-    margin: 0;
-    font-size: 1rem;
-    color: var(--muted);
-  }
-
   .results p:not(.label) {
     font-size: 1.0625rem;
     color: var(--ink);
@@ -184,7 +324,22 @@ import Shot from './Shot.astro';
     margin-top: 1.75rem;
   }
 
-  /* "Read the full case" disclosure */
+  .shots-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .shots-grid.pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .shots-caption {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+
+  /* Detail disclosure */
   .more {
     margin-top: 1.5rem;
     border-top: 1px solid var(--card-border);
@@ -224,50 +379,69 @@ import Shot from './Shot.astro';
     text-decoration: underline;
   }
 
-  .shots-grid {
+  .case-cols {
     display: grid;
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 1.25rem 0 0;
   }
 
-  .shots-grid.pair {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .shots-caption {
-    margin-top: 0.75rem;
-    font-size: 0.875rem;
+  dd {
+    margin: 0;
+    font-size: 1rem;
     color: var(--muted);
   }
 
+  /* Next case */
+  .next {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    margin-top: 1.5rem;
+    padding: 0 1.375rem;
+    border-radius: 999px;
+    border: 2px solid var(--ground);
+    background: transparent;
+    color: var(--ground);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .next:hover {
+    background: var(--ground);
+    color: var(--on-dark-heading);
+  }
+
+  .next[hidden] {
+    display: none;
+  }
+
   @media (max-width: 860px) {
-    .shots-grid.pair {
+    .tabs {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .shots-grid.pair,
+    .case-cols {
       grid-template-columns: 1fr;
     }
 
     .case-cols {
-      grid-template-columns: 1fr;
       gap: 1.5rem;
     }
 
     .case-head {
-      grid-template-columns: auto 1fr;
-    }
-
-    .highlight {
-      grid-column: 2;
-      max-width: none;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .case-head {
       grid-template-columns: 1fr;
-      gap: 0.5rem;
     }
 
     .highlight {
-      grid-column: 1;
-      margin-top: 0.75rem;
+      max-width: none;
+      flex-direction: row;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.25rem 0.75rem;
     }
   }
 </style>

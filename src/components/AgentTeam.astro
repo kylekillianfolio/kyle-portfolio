@@ -4,12 +4,11 @@ import Shot from './Shot.astro';
 const { me, chief, specialists, contextShot } = aiBuilds;
 ---
 
-<section id="ai-builds" aria-labelledby="ai-heading">
+<section id="agent-team" aria-labelledby="ai-heading">
   <div class="dark section diagram-section">
     <div class="container">
       <p class="eyebrow">{aiBuilds.eyebrow}</p>
       <h2 id="ai-heading" class="section-heading">{aiBuilds.heading}</h2>
-      <p class="intro">{aiBuilds.intro}</p>
 
       <figure class="diagram">
         <figcaption class="visually-hidden">
@@ -67,11 +66,6 @@ const { me, chief, specialists, contextShot } = aiBuilds;
 </section>
 
 <style>
-  .intro {
-    max-width: 60ch;
-    font-size: 1.125rem;
-  }
-
   /* Diagram */
   .diagram {
     margin: 3rem 0 0;
