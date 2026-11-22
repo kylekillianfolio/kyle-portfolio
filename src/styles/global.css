@@ -15,8 +15,8 @@
   --on-dark-body: #c9d3e0;
   --line-dark: #2a3d57;
 
-  --font-heading: 'Space Grotesk', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-heading: 'Space Grotesk Variable', system-ui, sans-serif;
+  --font-body: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   --max: 1120px;
   --gutter: clamp(1.25rem, 4vw, 2rem);

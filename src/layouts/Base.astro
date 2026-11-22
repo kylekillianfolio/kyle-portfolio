@@ -1,4 +1,10 @@
 ---
+// Fonts are served from this site (no Google Fonts round trips). Variable fonts:
+// one file per family covers every weight we use.
+import '@fontsource-variable/inter';
+import '@fontsource-variable/space-grotesk';
+import interLatin from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import spaceGroteskLatin from '@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2?url';
 import '../styles/global.css';
 import { site } from '../data/content';
 
@@ -34,12 +40,9 @@ const ogImage = new URL('/og-image.png', Astro.site);
     <meta name="twitter:description" content={site.description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
-    />
+    <!-- The first screen uses both fonts; start downloading them immediately -->
+    <link rel="preload" href={spaceGroteskLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={interLatin} as="font" type="font/woff2" crossorigin />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
