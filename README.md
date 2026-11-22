@@ -1,6 +1,6 @@
 # Kyle Killian — product portfolio
 
-**Live site:** https://kyle-portfolio-rosy.vercel.app
+**Live site:** https://kyle-killian.vercel.app
 
 The source for my portfolio site: a single page covering my product work, the 8-agent Claude team I run my work with, and my experience. I'm a Senior Product Owner building AI into manufacturing software, and into how product teams work.
 
