@@ -67,19 +67,20 @@ function band({ width, height, period, copies, stroke, strokeWidth = 0.6 }) {
 
 const AMBER = '#F2A93B';
 
-// Rings overlap slightly so the line-work reads as one continuous engraving.
-const rosetteRings = [
-  { base: 340, amp: 30, k: 18, amp2: 8, k2: 54, copies: 10 },
-  { base: 268, amp: 46, k: 12, copies: 12 },
-  { base: 182, amp: 42, k: 9, amp2: 10, k2: 27, copies: 10 },
-  { base: 104, amp: 34, k: 7, copies: 9 },
+// The seal shows at ~150px, a fifth of its 800-unit drawing. Fine engraving lines
+// would be ~0.2px there and blur into noise, so the seal gets its own rosette:
+// two rings, fewer copies, and ~5-unit strokes (about 1px on screen). Both rings
+// sit outside the center disk (radius ~215) that holds the text.
+const sealRings = [
+  { base: 345, amp: 38, k: 12, copies: 5 },
+  { base: 262, amp: 40, k: 9, copies: 4 },
 ];
 
 // Only the patterns the site uses:
 //   rosette.svg  the award seal on the hero portrait (small <img>)
 //   band.svg     banknote band framing the impact strip (CSS background)
 const files = {
-  [publicDir + 'rosette.svg']: rosette({ size: 800, rings: rosetteRings, stroke: AMBER, width: 0.9 }),
+  [publicDir + 'rosette.svg']: rosette({ size: 800, rings: sealRings, stroke: AMBER, width: 5.5 }),
   [publicDir + 'band.svg']: band({ width: 480, height: 72, period: 96, copies: 8, stroke: AMBER, strokeWidth: 1.2 }),
 };
 
