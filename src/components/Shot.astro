@@ -1,0 +1,64 @@
+---
+// A prototype screenshot. `name` matches a file rendered by `npm run prototypes`
+// into public/work/: <name>.webp (2560px) and <name>-1280.webp.
+interface Props {
+  name: string;
+  alt: string;
+  caption?: string;
+  tone?: 'light' | 'dark';
+}
+
+const { name, alt, caption, tone = 'light' } = Astro.props;
+const full = `/work/${name}.webp`;
+---
+
+<figure class:list={['shot', tone]}>
+  <a href={full} class="frame">
+    <img
+      src={`/work/${name}-1280.webp`}
+      srcset={`/work/${name}-1280.webp 1280w, ${full} 2560w`}
+      sizes="(max-width: 1184px) 100vw, 1120px"
+      width="1280"
+      height="800"
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+    />
+  </a>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  .shot {
+    margin: 0;
+  }
+
+  .frame {
+    display: block;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 1px 2px rgb(14 26 43 / 0.06);
+  }
+
+  .dark .frame {
+    border-color: var(--line-dark);
+    box-shadow: none;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  figcaption {
+    margin-top: 0.625rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+
+  .dark figcaption {
+    color: var(--on-dark-body);
+  }
+</style>

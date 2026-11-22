@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Command Center prototype</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#142033}a:hover{color:#8A5300}
+</style>
+</head>
+<body>
+<div style="width: 1280px; height: 800px; box-sizing: border-box; background: #F6F7F9; font-family: Inter, system-ui, sans-serif; color: #142033; display: flex; flex-direction: column; overflow: hidden">
+
+  <!-- App bar -->
+  <div style="background: #0E1A2B; color: #C9D3E0; padding: 14px 24px; display: flex; align-items: center; gap: 20px">
+    <div style="display: flex; align-items: center; gap: 10px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #F5F7FA; font-size: 17px"><span style="width: 10px; height: 10px; border-radius: 50%; background: #F2A93B"></span>Product Command Center</div>
+    <div style="display: flex; background: #13233A; border-radius: 999px; padding: 3px; font-size: 13px; font-weight: 600">
+      <span style="background: #F5F7FA; color: #0E1A2B; border-radius: 999px; padding: 5px 14px">Day</span>
+      <span style="padding: 5px 14px">Week</span>
+    </div>
+    <div style="flex: 1"></div>
+    <span style="font-size: 12px; border: 1px solid #2A3D57; border-radius: 999px; padding: 5px 12px">Illustrative recreation · placeholder data</span>
+  </div>
+
+  <!-- What's next -->
+  <div style="margin: 16px 24px 0; background: #FFF4E0; border: 1px solid #F2C77E; border-radius: 10px; padding: 10px 16px; display: flex; align-items: center; gap: 12px; font-size: 14px">
+    <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.08em; color: #8A5300">WHAT'S NEXT</span>
+    <span>Release 3 go/no-go on Thursday · 2 blockers still open</span>
+  </div>
+
+  <div style="flex: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto auto; gap: 16px; padding: 16px 24px 0">
+
+    <!-- Today -->
+    <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 16px 18px">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 12px"><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600">Today</span><span style="font-size: 12px; color: #4A5568">4 meetings</span></div>
+      <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px">
+        <div style="display: flex; gap: 12px"><span style="color: #4A5568; width: 44px">09:00</span><span>Team standup</span></div>
+        <div style="display: flex; gap: 12px"><span style="color: #4A5568; width: 44px">11:00</span><span>Roadmap review</span></div>
+        <div style="display: flex; gap: 12px"><span style="color: #4A5568; width: 44px">14:00</span><span>Customer advisory call <span style="color: #8A5300; font-weight: 600">· prep ready</span></span></div>
+        <div style="display: flex; gap: 12px"><span style="color: #4A5568; width: 44px">16:00</span><span>Release go/no-go prep</span></div>
+      </div>
+    </div>
+
+    <!-- Blockers -->
+    <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 16px 18px">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 12px"><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600">Blockers</span><span style="font-size: 12px; color: #B42318; font-weight: 600">2 open</span></div>
+      <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px">
+        <div style="border-left: 3px solid #D92D20; padding-left: 10px"><div>Test environment unavailable</div><div style="color: #4A5568; font-size: 12px">Waiting on platform team · 3 days</div></div>
+        <div style="border-left: 3px solid #F2A93B; padding-left: 10px"><div>Spec sign-off needed for Feature B</div><div style="color: #4A5568; font-size: 12px">Waiting on design review · 1 day</div></div>
+        <div style="border-left: 3px solid #C7CED8; padding-left: 10px; color: #4A5568"><div>Data migration script fixed</div><div style="font-size: 12px">Closed yesterday</div></div>
+      </div>
+    </div>
+
+    <!-- Release health -->
+    <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 16px 18px">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 12px"><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600">Release health</span><span style="font-size: 12px; color: #4A5568">2 releases</span></div>
+      <div style="font-size: 13px; display: flex; flex-direction: column; gap: 14px">
+        <div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px"><span style="font-weight: 600">Release 3</span><span style="color: #067647; font-weight: 600">On track · 78%</span></div>
+          <div style="height: 8px; background: #E2E6EC; border-radius: 4px"><div style="width: 78%; height: 8px; background: #0E1A2B; border-radius: 4px"></div></div>
+        </div>
+        <div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px"><span style="font-weight: 600">Release 4</span><span style="color: #8A5300; font-weight: 600">Planning · 15%</span></div>
+          <div style="height: 8px; background: #E2E6EC; border-radius: 4px"><div style="width: 15%; height: 8px; background: #F2A93B; border-radius: 4px"></div></div>
+        </div>
+        <div style="color: #4A5568">3 risks tracked · 1 dependency on another team</div>
+      </div>
+    </div>
+
+    <!-- Competitive intel -->
+    <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 16px 18px">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 12px"><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600">Competitive intelligence</span><span style="font-size: 12px; color: #4A5568">This week</span></div>
+      <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px">
+        <div><div>Competitor A launched an AI assistant</div><div style="color: #4A5568; font-size: 12px">Summary and response options drafted</div></div>
+        <div><div>Competitor B changed its pricing tiers</div><div style="color: #4A5568; font-size: 12px">Impact note ready for review</div></div>
+      </div>
+    </div>
+
+    <!-- Living roadmap spans two columns -->
+    <div style="grid-column: span 2; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 16px 18px">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 12px"><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600">Living roadmap</span><span style="font-size: 12px; color: #4A5568">Updated this morning</span></div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; font-size: 13px">
+        <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; font-weight: 600; color: #8A5300; letter-spacing: 0.06em">NOW</span><span style="background: #F6F7F9; border-radius: 8px; padding: 8px 10px">Saved views</span><span style="background: #F6F7F9; border-radius: 8px; padding: 8px 10px">Alert routing</span></div>
+        <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; font-weight: 600; color: #8A5300; letter-spacing: 0.06em">NEXT</span><span style="background: #F6F7F9; border-radius: 8px; padding: 8px 10px">Bulk export</span><span style="background: #F6F7F9; border-radius: 8px; padding: 8px 10px">Audit trail</span></div>
+        <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; font-weight: 600; color: #8A5300; letter-spacing: 0.06em">LATER</span><span style="background: #F6F7F9; border-radius: 8px; padding: 8px 10px">Natural-language reports</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Agent activity strip -->
+  <div style="margin: 16px 24px 20px; background: #0E1A2B; color: #C9D3E0; border-radius: 10px; padding: 12px 16px; display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 13px">
+    <span style="color: #F2A93B; font-weight: 600">Agent team</span>
+    <span>Morning briefing refreshed 6:01</span>
+    <span>Team brief sent 7:45</span>
+    <span>2 drafts waiting for your review</span>
+    <span>Nothing sent without approval</span>
+  </div>
+</div>
+</body>
+</html>

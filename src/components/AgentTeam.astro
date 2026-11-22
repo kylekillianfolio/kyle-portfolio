@@ -1,6 +1,7 @@
 ---
 import { aiBuilds } from '../data/content';
-const { me, chief, specialists } = aiBuilds;
+import Shot from './Shot.astro';
+const { me, chief, specialists, contextShot } = aiBuilds;
 ---
 
 <section id="ai-builds" aria-labelledby="ai-heading">
@@ -36,6 +37,15 @@ const { me, chief, specialists } = aiBuilds;
           }
         </ul>
       </figure>
+
+      <div class="context-shot">
+        <Shot
+          name={contextShot.name}
+          alt={contextShot.alt}
+          caption={contextShot.caption}
+          tone="dark"
+        />
+      </div>
     </div>
   </div>
 
@@ -180,6 +190,10 @@ const { me, chief, specialists } = aiBuilds;
       min-width: 0;
       width: 100%;
     }
+  }
+
+  .context-shot {
+    margin-top: 4rem;
   }
 
   /* Principles */

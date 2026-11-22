@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hall pass kiosk prototype</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#142033}a:hover{color:#8A5300}
+</style>
+</head>
+<body>
+<div style="width: 1280px; height: 800px; box-sizing: border-box; background: #F6F7F9; font-family: Inter, system-ui, sans-serif; color: #142033; display: flex; flex-direction: column; overflow: hidden">
+
+  <!-- Kiosk header: no product mark -->
+  <div style="background: #0E1A2B; color: #C9D3E0; padding: 16px 32px; display: flex; align-items: center; gap: 14px">
+    <span style="width: 12px; height: 12px; border-radius: 50%; background: #F2A93B"></span>
+    <div><div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #F5F7FA; font-size: 18px">Period 1 · Room 204</div><div style="font-size: 12px">Student kiosk</div></div>
+    <div style="flex: 1"></div>
+    <span style="font-size: 12px; border: 1px solid #2A3D57; border-radius: 999px; padding: 5px 12px">Illustrative recreation · placeholder names</span>
+  </div>
+
+  <div style="flex: 1; padding: 28px 32px; display: flex; flex-direction: column; gap: 22px">
+    <!-- Currently out -->
+    <div style="display: flex; align-items: center; gap: 20px">
+      <div style="display: flex; align-items: center; gap: 18px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 16px; padding: 16px 22px">
+        <svg width="76" height="76" viewBox="0 0 76 76" aria-hidden="true"><circle cx="38" cy="38" r="32" fill="none" stroke="#E2E6EC" stroke-width="7"></circle><circle cx="38" cy="38" r="32" fill="none" stroke="#F2A93B" stroke-width="7" stroke-linecap="round" stroke-dasharray="201" stroke-dashoffset="70" transform="rotate(-90 38 38)"></circle><text x="38" y="43" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="15" fill="#142033">4:12</text></svg>
+        <div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px">Jordan K.</div>
+          <div style="font-size: 13px; color: #4A5568; margin: 2px 0 10px">Restroom · out at 9:57</div>
+          <a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #F2A93B; color: #0E1A2B; font-weight: 600; text-decoration: none">I'm back</a>
+        </div>
+      </div>
+      <div style="font-size: 14px; color: #4A5568">1 of 2 out · limit 10 min</div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: baseline">
+      <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 22px">Tap your name to sign out</h2>
+      <span style="font-size: 13px; color: #4A5568">No typing, no PIN</span>
+    </div>
+
+    <!-- Name grid -->
+    <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px">
+      <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 8px; text-decoration: none; color: #142033"><span style="width: 44px; height: 44px; border-radius: 12px; background: #0E1A2B; color: #F5F7FA; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">AB</span><span style="font-size: 14px; font-weight: 500">Avery B.</span></a>
+      <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 8px; text-decoration: none; color: #142033"><span style="width: 44px; height: 44px; border-radius: 12px; background: #8A5300; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">BC</span><span style="font-size: 14px; font-weight: 500">Blake C.</span></a>
+      <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 8px; text-decoration: none; color: #142033"><span style="width: 44px; height: 44px; border-radius: 12px; background: #2F5D8A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">CD</span><span style="font-size: 14px; font-weight: 500">Casey D.</span></a>
+      <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 8px; text-decoration: none; color: #142033"><span style="width: 44px; height: 44px; border-radius: 12px; background: #3F6B4F; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">DE</span><span style="font-size: 14px; font-weight: 500">Drew E.</span></a>
+      <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 8px; text-decoration: none; color: #142033"><span style="width: 44px; height: 44px; border-radius: 12px; background: #0E1A2B; color: #F5F7FA; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">EF</span><span style="font-size: 14px; font-weight: 500">Emery F.</span></a>
+      <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 8px; text-decoration: none; color: #142033"><span style="width: 44px; height: 44px; border-radius: 12px; background: #8A5300; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">FG</span><span style="font-size: 14px; font-weight: 500">Finley G.</span></a>
+      <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 8px; text-decoration: none; color: #142033"><span style="width: 44px; height: 44px; border-radius: 12px; background: #2F5D8A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">HH</span><span style="font-size: 14px; font-weight: 500">Harper H.</span></a>
+      <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 8px; text-decoration: none; color: #142033"><span style="width: 44px; height: 44px; border-radius: 12px; background: #3F6B4F; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">IJ</span><span style="font-size: 14px; font-weight: 500">Indie J.</span></a>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #EEF0F3; border: 1px dashed #C7CED8; border-radius: 14px; padding: 16px 8px; color: #4A5568"><span style="width: 44px; height: 44px; border-radius: 12px; background: #C7CED8; color: #142033; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">JK</span><span style="font-size: 14px; font-weight: 500">Jordan K. · out</span></div>
+      <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 8px; text-decoration: none; color: #142033"><span style="width: 44px; height: 44px; border-radius: 12px; background: #0E1A2B; color: #F5F7FA; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">KL</span><span style="font-size: 14px; font-weight: 500">Kai L.</span></a>
+      <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 8px; text-decoration: none; color: #142033"><span style="width: 44px; height: 44px; border-radius: 12px; background: #8A5300; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">LM</span><span style="font-size: 14px; font-weight: 500">Logan M.</span></a>
+      <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 8px; text-decoration: none; color: #142033"><span style="width: 44px; height: 44px; border-radius: 12px; background: #2F5D8A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">MN</span><span style="font-size: 14px; font-weight: 500">Morgan N.</span></a>
+      <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 8px; text-decoration: none; color: #142033"><span style="width: 44px; height: 44px; border-radius: 12px; background: #3F6B4F; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">PP</span><span style="font-size: 14px; font-weight: 500">Parker P.</span></a>
+      <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 8px; text-decoration: none; color: #142033"><span style="width: 44px; height: 44px; border-radius: 12px; background: #0E1A2B; color: #F5F7FA; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">QR</span><span style="font-size: 14px; font-weight: 500">Quinn R.</span></a>
+      <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 8px; text-decoration: none; color: #142033"><span style="width: 44px; height: 44px; border-radius: 12px; background: #8A5300; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">RS</span><span style="font-size: 14px; font-weight: 500">Reese S.</span></a>
+      <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 8px; text-decoration: none; color: #142033"><span style="width: 44px; height: 44px; border-radius: 12px; background: #2F5D8A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">RT</span><span style="font-size: 14px; font-weight: 500">Rowan T.</span></a>
+      <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 8px; text-decoration: none; color: #142033"><span style="width: 44px; height: 44px; border-radius: 12px; background: #3F6B4F; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">SU</span><span style="font-size: 14px; font-weight: 500">Sage U.</span></a>
+      <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 8px; text-decoration: none; color: #142033"><span style="width: 44px; height: 44px; border-radius: 12px; background: #0E1A2B; color: #F5F7FA; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">TV</span><span style="font-size: 14px; font-weight: 500">Taylor V.</span></a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

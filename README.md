@@ -24,8 +24,12 @@ src/
   pages/index.astro     Assembles the sections
   styles/global.css     Design tokens and shared styles
 scripts/og-image.mjs    Generates the share image and PNG favicons
-public/                 Static files: résumé PDF, icons, share image
+scripts/render-prototypes.mjs   Renders design/prototypes/ to public/work/
+design/prototypes/      HTML recreations of my work tools, placeholder data only
+public/                 Static files: résumé PDF, icons, share image, prototype images
 ```
+
+The screenshots on the site are recreations, not captures of the real tools. They show how each system works using placeholder names and data, so nothing internal or student-related is ever published.
 
 The agent-team diagram in `AgentTeam.astro` is built from HTML and CSS rather than an image, so it stays sharp, responsive and readable by screen readers.
 
@@ -39,6 +43,7 @@ npm run dev        # http://localhost:4321
 npm run build      # production build to dist/
 npm run preview    # serve the production build
 npm run og         # regenerate og-image.png and the PNG favicons
+npm run prototypes # re-render the prototype screenshots (needs Chrome)
 ```
 
 ## How I built this with Claude Code
@@ -50,4 +55,4 @@ I wrote two documents: a build brief (stack, design tokens, accessibility and pe
 - **It checked its own work.** Claude Code ran the production build, viewed the page at desktop and phone widths in a browser, measured touch targets and horizontal overflow, and ran Lighthouse before calling it done.
 - **I kept the decisions.** I set direction, content and guardrails. Claude Code did the build. That's the same way I run my agent team.
 
-Built on my personal Claude license. I'm honestly not sure whether I use that one or my work one more.
+This site was built on my personal Claude license. My agent team and Command Center run on my work one. I'm honestly not sure which I use more.

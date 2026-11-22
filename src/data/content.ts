@@ -43,6 +43,9 @@ export interface WorkCase {
   results: string; // html
   // Headline result shown large at the top of the card. Uses figures from `results` only.
   highlight: { value: string; label: string };
+  // Prototype screenshots rendered from design/prototypes/ (placeholder data only).
+  shots?: { name: string; alt: string }[];
+  shotsCaption?: string;
 }
 
 export const work = {
@@ -50,6 +53,13 @@ export const work = {
   heading: 'Four problems, and what changed',
   cases: [
     {
+      shots: [
+        {
+          name: 'command-center',
+          alt: 'Command Center prototype: panels for today, blockers, release health, competitive intelligence and a living roadmap, with a strip showing what the agent team did this morning.',
+        },
+      ],
+      shotsCaption: 'The Command Center. Illustrative recreation with placeholder data.',
       highlight: { value: '12–15 hrs', label: 'saved per week' },
       title: 'AI Product Command Center → an 8-agent team',
       tag: '2026 AI Impact Award',
@@ -90,6 +100,17 @@ export const work = {
         '<strong>8 → 16 core brands</strong>. <strong>20% faster</strong> product owner ramp-up. Supported a <strong>$219M</strong> billings-based revenue base.',
     },
     {
+      shots: [
+        {
+          name: 'hall-pass-kiosk',
+          alt: 'Student kiosk prototype: a grid of name tiles to tap, and a countdown ring for a student who is out.',
+        },
+        {
+          name: 'hall-pass-dashboard',
+          alt: "Teacher dashboard prototype: who is out right now, pass counts and times, and today's activity, with an Emergency button.",
+        },
+      ],
+      shotsCaption: 'Student kiosk and teacher dashboard. Illustrative recreation with placeholder data.',
       highlight: { value: 'Phase 1', label: 'built and tested' },
       title: 'A privacy-first hall pass for schools',
       tag: 'Independent product · Pre-launch',
@@ -122,6 +143,11 @@ export const aiBuilds = {
     { name: 'Program Mgmt', role: 'Releases, risks and dependencies' },
     { name: 'Comms', role: 'Stakeholder updates' },
   ],
+  contextShot: {
+    name: 'agent-guardrails',
+    alt: 'Diagram of how the agents get context: files I own, memory that scheduled jobs keep current, and live systems they can only read, feeding every job run. Beside it, five guardrails built into every prompt.',
+    caption: 'How the agents get context, and the guardrails in every prompt. Illustrative recreation with placeholder data.',
+  },
   principlesHeading: 'How I build with AI',
   principles: [
     {
@@ -186,5 +212,5 @@ export const contact = {
   body: "I'm looking for AI product and product leadership roles where AI strategy meets real delivery. Remote, or based in Northeast Florida.",
   footer: 'This site was designed and built with Claude Code.',
   footerAside:
-    "Honestly, I'm not sure whether I use my work or personal Claude license more. This site and my hall pass app were built on the personal one.",
+    "Honestly, I'm not sure which Claude license I use more. My agent team and Command Center run on my work one; this site and my hall pass app were built on my personal one.",
 };

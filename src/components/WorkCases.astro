@@ -1,5 +1,6 @@
 ---
 import { work } from '../data/content';
+import Shot from './Shot.astro';
 ---
 
 <section id="work" class="section light" aria-labelledby="work-heading">
@@ -42,6 +43,16 @@ import { work } from '../data/content';
                   <dd set:html={c.results} />
                 </div>
               </dl>
+              {c.shots && (
+                <div class="case-shots">
+                  <div class:list={['shots-grid', { pair: c.shots.length > 1 }]}>
+                    {c.shots.map((s) => (
+                      <Shot name={s.name} alt={s.alt} />
+                    ))}
+                  </div>
+                  {c.shotsCaption && <p class="shots-caption">{c.shotsCaption}</p>}
+                </div>
+              )}
             </article>
           </li>
         ))
@@ -167,7 +178,32 @@ import { work } from '../data/content';
     color: var(--ink);
   }
 
+  .case-shots {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--card-border);
+  }
+
+  .shots-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .shots-grid.pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .shots-caption {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+
   @media (max-width: 860px) {
+    .shots-grid.pair {
+      grid-template-columns: 1fr;
+    }
+
     .case-cols {
       grid-template-columns: 1fr;
       gap: 1.5rem;
