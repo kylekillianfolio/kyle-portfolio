@@ -195,7 +195,7 @@ export const experience = {
       title: 'Product Manager, Debit Card & World Markets',
       dates: '2018 – 2019',
       impact:
-        "Moved 50,000+ customers to new cards during the EverBank-to-TIAA rebrand and built the business case for contactless: worth the added card cost to stay at the top of customers' wallets. Also added three new MarketSafe® CD products.",
+        "Moved 50,000+ customers to new cards during the EverBank-to-TIAA rebrand, holding contactless out of that send to protect the timeline, then built the business case to add it at renewal to stay at the top of customers' wallets. Also added three new MarketSafe® CD products.",
     },
     {
       company: 'TIAA · First Citizens Bank',
