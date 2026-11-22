@@ -188,7 +188,7 @@ export const experience = {
       title: 'Product Manager, Domains',
       dates: '2019 – 2020',
       impact:
-        "Launched AdultBlock, the portfolio's first brand-protection product, and cut wholesale cost 50%. Also expanded bulk domain management and launched ~8 new top-level domains. Handled Brexit for .eu, where UK owners lost eligibility under EU residency rules and needed a path to keep or replace their names, with .uk as the alternative.",
+        "Launched AdultBlock, the portfolio's first brand-protection product. When big-ticket buyers needed sign-off from boards that met quarterly or less, I used the 50% wholesale cost cut I'd negotiated to fund up-front discounts that sped approvals. Also expanded bulk domain management and launched ~8 new top-level domains. Handled Brexit for .eu, where UK owners lost eligibility under EU residency rules and needed a path to keep or replace their names, with .uk as the alternative.",
     },
     {
       company: 'TIAA Bank',
