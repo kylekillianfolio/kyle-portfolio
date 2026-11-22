@@ -44,5 +44,6 @@ for (const file of readdirSync(srcDir).filter((f) => f.endsWith('.html'))) {
   ]);
   await sharp(png).webp({ quality: 82 }).toFile(join(outDir, `${name}.webp`));
   await sharp(png).resize(WIDTH).webp({ quality: 82 }).toFile(join(outDir, `${name}-${WIDTH}.webp`));
+  await sharp(png).resize(WIDTH / 2).webp({ quality: 80 }).toFile(join(outDir, `${name}-${WIDTH / 2}.webp`));
   console.log(`Rendered ${name}.webp`);
 }

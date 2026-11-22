@@ -1,14 +1,15 @@
 ---
 // A prototype screenshot. `name` matches a file rendered by `npm run prototypes`
-// into public/work/: <name>.webp (2560px) and <name>-1280.webp.
+// into public/work/: <name>.webp (2560px), <name>-1280.webp and <name>-640.webp.
 interface Props {
   name: string;
   alt: string;
   caption?: string;
   tone?: 'light' | 'dark';
+  half?: boolean; // shown at half width beside another shot
 }
 
-const { name, alt, caption, tone = 'light' } = Astro.props;
+const { name, alt, caption, tone = 'light', half = false } = Astro.props;
 const full = `/work/${name}.webp`;
 ---
 
@@ -16,8 +17,8 @@ const full = `/work/${name}.webp`;
   <a href={full} class="frame">
     <img
       src={`/work/${name}-1280.webp`}
-      srcset={`/work/${name}-1280.webp 1280w, ${full} 2560w`}
-      sizes="(max-width: 1184px) 100vw, 1120px"
+      srcset={`/work/${name}-640.webp 640w, /work/${name}-1280.webp 1280w, ${full} 2560w`}
+      sizes={half ? '(max-width: 860px) 100vw, 540px' : '(max-width: 1184px) 100vw, 1120px'}
       width="1280"
       height="800"
       alt={alt}

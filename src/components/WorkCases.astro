@@ -64,7 +64,7 @@ const num = (i: number) => String(i + 1).padStart(2, '0');
               <div class="case-shots">
                 <div class:list={['shots-grid', { pair: c.shots.length > 1 }]}>
                   {c.shots.map((s) => (
-                    <Shot name={s.name} alt={s.alt} />
+                    <Shot name={s.name} alt={s.alt} half={c.shots.length > 1} />
                   ))}
                 </div>
                 {c.shotsCaption && <p class="shots-caption">{c.shotsCaption}</p>}
@@ -129,6 +129,8 @@ const num = (i: number) => String(i + 1).padStart(2, '0');
       });
     });
     select(0);
+    // From here the script owns visibility; drop the pre-paint CSS stand-in.
+    document.getElementById('work')?.classList.add('tabs-ready');
 
     tabs.forEach((tab, i) => tab.addEventListener('click', () => select(i)));
     tablist.addEventListener('keydown', (e) => {
@@ -160,6 +162,16 @@ const num = (i: number) => String(i + 1).padStart(2, '0');
   }
 
   .tabs[hidden] {
+    display: none;
+  }
+
+  /* With JavaScript on, show the tab layout from the first paint (before the
+     script runs) so the page is laid out once, not four cases then one. */
+  :global(html.js) #work:not(.tabs-ready) .tabs[hidden] {
+    display: grid;
+  }
+
+  :global(html.js) #work:not(.tabs-ready) .case:not(:first-child) {
     display: none;
   }
 
