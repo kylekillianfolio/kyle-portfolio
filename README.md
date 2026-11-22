@@ -49,3 +49,5 @@ I wrote two documents: a build brief (stack, design tokens, accessibility and pe
 - **Copy stayed separate from code.** All text lives in `src/data/content.ts`, taken verbatim from my content doc, so the words are easy to check against the source.
 - **It checked its own work.** Claude Code ran the production build, viewed the page at desktop and phone widths in a browser, measured touch targets and horizontal overflow, and ran Lighthouse before calling it done.
 - **I kept the decisions.** I set direction, content and guardrails. Claude Code did the build. That's the same way I run my agent team.
+
+Built on my personal Claude license. I'm honestly not sure whether I use that one or my work one more.

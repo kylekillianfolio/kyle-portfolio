@@ -185,4 +185,6 @@ export const contact = {
   heading: "Let's talk",
   body: "I'm looking for AI product and product leadership roles where AI strategy meets real delivery. Remote, or based in Northeast Florida.",
   footer: 'This site was designed and built with Claude Code.',
+  footerAside:
+    "Honestly, I'm not sure whether I use my work or personal Claude license more. This site and my hall pass app were built on the personal one.",
 };
