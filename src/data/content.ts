@@ -195,7 +195,7 @@ export const experience = {
       title: 'Product Manager, Debit Card & World Markets',
       dates: '2018 – 2019',
       impact:
-        "Moved 50,000+ customers to new cards during the EverBank-to-TIAA rebrand. Held contactless out of that send to protect the timeline, then built the case to launch it at renewal with proper enablement and marketing to drive adoption. Also added three new MarketSafe® CD products.",
+        "Moved 50,000+ customers to new cards during the EverBank-to-TIAA rebrand and added FICO Falcon fraud monitoring, tuning it from live alerts. Held contactless out of that send to protect the timeline, then built the case to launch it at renewal with proper enablement and marketing to drive adoption. Also added three new MarketSafe® CD products.",
     },
     {
       company: 'TIAA · First Citizens Bank',
