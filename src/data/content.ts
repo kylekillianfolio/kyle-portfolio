@@ -188,7 +188,7 @@ export const experience = {
       title: 'Product Manager, Domains',
       dates: '2019 – 2020',
       impact:
-        "Launched AdultBlock, the portfolio's first brand-protection product, and negotiated a 50% reduction in wholesale cost.",
+        "Launched AdultBlock, the portfolio's first brand-protection product, and cut wholesale cost 50%. Also expanded bulk domain management, launched new domain extensions and managed the regulatory impact of Brexit.",
     },
     {
       company: 'TIAA Bank',
