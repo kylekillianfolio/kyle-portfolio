@@ -55,4 +55,4 @@ I wrote two documents: a build brief (stack, design tokens, accessibility and pe
 - **It checked its own work.** Claude Code ran the production build, viewed the page at desktop and phone widths in a browser, measured touch targets and horizontal overflow, and ran Lighthouse before calling it done.
 - **I kept the decisions.** I set direction, content and guardrails. Claude Code did the build. That's the same way I run my agent team.
 
-This site was built on my personal Claude license. My agent team and Command Center run on my work one. I'm honestly not sure which I use more.
+This site was built on my personal Claude license. My agent team, and the Command Center before it, run on my work one. I'm honestly not sure which I use more.

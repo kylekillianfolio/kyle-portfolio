@@ -58,20 +58,20 @@ export const work = {
       shots: [
         {
           name: 'command-center',
-          alt: 'Command Center prototype: panels for today, blockers, release health, competitive intelligence and a living roadmap, with a strip showing what the agent team did this morning.',
+          alt: 'Version 1, the Command Center prototype: panels for today, blockers, release health, competitive intelligence and a living roadmap, with a strip showing what scheduled tasks did this morning.',
         },
       ],
-      shotsCaption: "Generic recreation with placeholder data. The real one runs on company systems I can't show.",
+      shotsCaption: "Version 1, the Command Center I retired. Generic recreation with placeholder data; the real one ran on company systems I can't show.",
       highlight: { value: '12–15 hrs', label: 'saved per week' },
-      tabLabel: 'Command Center',
-      title: 'AI Product Command Center → an 8-agent team',
+      tabLabel: 'My AI workflow',
+      title: 'From a Command Center to an 8-agent team',
       tag: '2026 AI Impact Award',
       nutshell:
-        'I turned my own product workload into an orchestrated team of Claude agents, then rebuilt it in two months.',
+        "I built a dashboard to run my whole workload, saw it couldn't keep up, and replaced it with an orchestrated team of Claude agents.",
       challenge:
         'One product owner carrying backlogs, releases, competitive tracking and stakeholder updates for global teams in three regions.',
       action:
-        'A Command Center combining calendar, blockers, release health, competitive intelligence and a living roadmap, kept current by scheduled automation. Then a Chief of Staff agent orchestrating 7 specialists, each with a charter and hand-offs, token-efficient context and a UI for visibility.',
+        'Version 1 was a Command Center that pulled my artifacts, scheduled tasks and skills into one place: calendar, blockers, release health, competitive intelligence and a living roadmap. Pressure-tested against my full workload, it took too much upkeep, so I retired it. Version 2 is a Chief of Staff agent orchestrating 7 specialists, each with a charter and hand-offs, token-efficient context and a UI for visibility.',
       results:
         '<strong>2x throughput</strong> on specs and decisions.',
     },
@@ -200,5 +200,5 @@ export const contact = {
   body: "Want to talk agent teams, AI product, or how this site was built? I'm always up for comparing notes.",
   footer: 'This site was designed and built with Claude Code.',
   footerAside:
-    "Honestly, I'm not sure which Claude license I use more. My agent team and Command Center run on my work one; this site and my hall pass app were built on my personal one.",
+    "Honestly, I'm not sure which Claude license I use more. My agent team, and the Command Center before it, run on my work one; this site and my hall pass app were built on my personal one.",
 };
