@@ -3,22 +3,66 @@ import { hero, site } from '../data/content';
 ---
 
 <section class="hero dark" aria-labelledby="hero-heading">
-  <div class="container">
-    <p class="eyebrow">{hero.eyebrow}</p>
-    <h1 id="hero-heading">{hero.headline}</h1>
-    <p class="bio">{hero.bio}</p>
-    <div class="actions">
-      <a class="btn btn-primary" href="#work">See my work</a>
-      <a class="btn btn-ghost" href={site.linkedin}>LinkedIn</a>
-      <a class="btn btn-ghost" href={site.resume}>Résumé</a>
+  <div class="container hero-grid">
+    <div class="copy">
+      <p class="eyebrow">{hero.eyebrow}</p>
+      <h1 id="hero-heading">{hero.headline}</h1>
+      <p class="bio">{hero.bio}</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#work">See my work</a>
+        <a class="btn btn-ghost" href={site.linkedin}>LinkedIn</a>
+        <a class="btn btn-ghost" href={site.resume}>Résumé</a>
+      </div>
+      <p class="status"><span class="dot" aria-hidden="true"></span>{hero.status}</p>
     </div>
-    <p class="status"><span class="dot" aria-hidden="true"></span>{hero.status}</p>
+    <img
+      class="portrait"
+      src="/headshot-640.webp"
+      srcset="/headshot-320.webp 320w, /headshot-640.webp 640w"
+      sizes="(max-width: 860px) 112px, 320px"
+      width="640"
+      height="640"
+      alt={`Portrait of ${site.name}`}
+      fetchpriority="high"
+      decoding="async"
+    />
   </div>
 </section>
 
 <style>
   .hero {
     padding-block: clamp(4rem, 10vw, 7.5rem) clamp(3.5rem, 8vw, 6rem);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .portrait {
+    width: 320px;
+    height: auto;
+    border-radius: 24px;
+    border: 1px solid var(--line-dark);
+    box-shadow: 0 0 0 6px var(--band);
+  }
+
+  @media (max-width: 860px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    /* On phones the photo sits small, above the eyebrow */
+    .portrait {
+      order: -1;
+      width: 112px;
+      border-radius: 20px;
+      box-shadow: 0 0 0 4px var(--band);
+      margin-bottom: 1.75rem;
+    }
   }
 
   h1 {
