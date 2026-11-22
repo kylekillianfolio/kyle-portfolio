@@ -176,17 +176,33 @@ export const experience = {
       title: 'Senior Product Owner · Team Lead, Product Owners · Product Owner',
       dates: '2023 – Present',
     },
-    { company: 'Brightway Insurance', title: 'Technology Product Manager', dates: '2021 – 2022' },
-    { company: 'Web.com Group', title: 'Product Manager, Domains', dates: '2019 – 2020' },
+    {
+      company: 'Brightway Insurance',
+      title: 'Technology Product Manager',
+      dates: '2021 – 2022',
+      impact:
+        'Automated manual accounting, underwriting and policy servicing work with RPA, and built a Power BI tool that helped franchisees rewrite policies hit by carrier non-renewals.',
+    },
+    {
+      company: 'Web.com Group',
+      title: 'Product Manager, Domains',
+      dates: '2019 – 2020',
+      impact:
+        "Launched AdultBlock, the portfolio's first brand-protection product, and negotiated a 50% reduction in wholesale cost.",
+    },
     {
       company: 'TIAA Bank',
       title: 'Product Manager, Debit Card & World Markets',
       dates: '2018 – 2019',
+      impact:
+        'Moved 50,000+ customers to new card assets during the EverBank-to-TIAA rebrand, and added three new MarketSafe® CD products.',
     },
     {
       company: 'TIAA · First Citizens Bank',
       title: 'Institutional consulting and financial services leadership',
       dates: '2005 – 2018',
+      impact:
+        "Hit 164–171% of quota leading New York State's Voluntary Defined Contribution rollout, and ranked top 5 statewide at First Citizens.",
     },
   ],
   credentials: [
