@@ -23,7 +23,7 @@ export const hero = {
   eyebrow: 'Agentic AI · Product Leadership · B2B SaaS',
   headline: 'Building AI into manufacturing software, and into how product teams work.',
   // Trimmed for scanning: the impact strip right below carries the ARR, team and acquisition numbers.
-  bio: "I'm a Senior Product Owner at Advantive with 8+ years in B2B SaaS, digital commerce and fintech, and I run my own work with an 8-agent Claude team that won a 2026 AI Impact Award.",
+  bio: "I'm a Senior Product Owner at Advantive with 8+ years in B2B SaaS, digital commerce and fintech. My AI Command Center won a 2026 AI Impact Award; two months later I replaced it with an 8-agent Claude team.",
   status: 'Based in St. Augustine, FL',
 };
 
@@ -61,17 +61,17 @@ export const work = {
           alt: 'Version 1, the Command Center prototype: panels for today, blockers, release health, competitive intelligence and a living roadmap, with a strip showing what scheduled tasks did this morning.',
         },
       ],
-      shotsCaption: "Version 1, the Command Center I retired. Generic recreation with placeholder data; the real one ran on company systems I can't show.",
-      highlight: { value: '12–15 hrs', label: 'saved per week' },
+      shotsCaption: "Version 1, the award-winning Command Center I retired. Generic recreation with placeholder data; the real one ran on company systems I can't show.",
+      highlight: { value: '12–15 hrs', label: 'saved per week by the agent team' },
       tabLabel: 'My AI workflow',
       title: 'From a Command Center to an 8-agent team',
       tag: '2026 AI Impact Award',
       nutshell:
-        "I built a dashboard to run my whole workload, saw it couldn't keep up, and replaced it with an orchestrated team of Claude agents.",
+        'My Command Center won a 2026 AI Impact Award in August. Two months later I had retired it for an orchestrated team of Claude agents.',
       challenge:
         'One product owner carrying backlogs, releases, competitive tracking and stakeholder updates for global teams in three regions.',
       action:
-        'Version 1 was a Command Center that pulled my artifacts, scheduled tasks and skills into one place: calendar, blockers, release health, competitive intelligence and a living roadmap. Pressure-tested against my full workload, it took too much upkeep, so I retired it. Version 2 is a Chief of Staff agent orchestrating 7 specialists, each with a charter and hand-offs, token-efficient context and a UI for visibility.',
+        'Version 1 was a Command Center that pulled my artifacts, scheduled tasks and skills into one place: calendar, blockers, release health, competitive intelligence and a living roadmap. It won the award, but pressure-tested against my full workload it took too much upkeep. Within two months I replaced it with version 2: a Chief of Staff agent orchestrating 7 specialists, each with a charter and hand-offs, token-efficient context and a UI for visibility.',
       results:
         '<strong>2x throughput</strong> on specs and decisions.',
     },
