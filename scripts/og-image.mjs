@@ -14,7 +14,7 @@ const FONT = "'Space Grotesk', 'Segoe UI', Arial, sans-serif";
 const og = `
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="${NAVY}"/>
-  <rect x="80" y="80" width="56" height="6" rx="3" fill="${AMBER}"/>
+  <rect x="80" y="80" width="56" height="6" fill="${AMBER}"/>
   <text x="80" y="140" font-family="${FONT}" font-size="26" font-weight="600" letter-spacing="2" fill="${AMBER}">AGENTIC AI · PRODUCT LEADERSHIP · B2B SAAS</text>
   <text font-family="${FONT}" font-size="64" font-weight="700" fill="${HEADING}">
     <tspan x="80" y="260">Building AI into manufacturing</tspan>
@@ -28,7 +28,7 @@ const og = `
 
 const icon = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="${NAVY}"/>
+  <rect width="64" height="64" fill="${NAVY}"/>
   <circle cx="32" cy="32" r="13" fill="${AMBER}"/>
 </svg>`;
 

@@ -17,9 +17,31 @@ import { impact } from '../data/content';
 
 <style>
   .impact {
+    position: relative;
     background: var(--band);
     color: var(--on-dark-body);
-    padding-block: 2.5rem;
+    padding-block: calc(2.5rem + 30px);
+  }
+
+  /* Guilloché bands frame the strip top and bottom, like a banknote border */
+  .impact::before,
+  .impact::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: url('/patterns/band.svg') left center / auto 100% repeat-x;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .impact::before {
+    top: 0;
+  }
+
+  .impact::after {
+    bottom: 0;
   }
 
   .impact-list {

@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "og": "node scripts/og-image.mjs",
-    "prototypes": "node scripts/render-prototypes.mjs"
+    "prototypes": "node scripts/render-prototypes.mjs",
+    "guilloche": "node scripts/guilloche.mjs"
   },
   "dependencies": {
     "astro": "^7.4.13"

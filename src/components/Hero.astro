@@ -15,17 +15,26 @@ import { hero, site } from '../data/content';
       </div>
       <p class="status"><span class="dot" aria-hidden="true"></span>{hero.status}</p>
     </div>
-    <img
-      class="portrait"
-      src="/headshot-640.webp"
-      srcset="/headshot-320.webp 320w, /headshot-640.webp 640w"
-      sizes="(max-width: 860px) 112px, 320px"
-      width="640"
-      height="640"
-      alt={`Portrait of ${site.name}`}
-      fetchpriority="high"
-      decoding="async"
-    />
+
+    <div class="portrait-wrap">
+      <img
+        class="portrait"
+        src="/headshot-640.webp"
+        srcset="/headshot-320.webp 320w, /headshot-640.webp 640w"
+        sizes="(max-width: 860px) 112px, 320px"
+        width="640"
+        height="640"
+        alt={`Portrait of ${site.name}`}
+        fetchpriority="high"
+        decoding="async"
+      />
+      <!-- Award seal: the guilloché rosette around real, readable text -->
+      <p class="seal">
+        <img class="seal-art" src="/patterns/rosette.svg" width="156" height="156" alt="" fetchpriority="low" decoding="async" />
+        <span class="seal-year">Aug 2026</span>
+        <span class="seal-label">AI Impact Award</span>
+      </p>
+    </div>
   </div>
 </section>
 
@@ -35,18 +44,86 @@ import { hero, site } from '../data/content';
   }
 
   .hero-grid {
+    position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
-    gap: 3rem;
+    gap: 3.5rem;
+  }
+
+  .portrait-wrap {
+    position: relative;
   }
 
   .portrait {
+    display: block;
     width: 320px;
     height: auto;
-    border-radius: 24px;
+    border-radius: var(--radius);
     border: 1px solid var(--line-dark);
     box-shadow: 0 0 0 6px var(--band);
+  }
+
+  .seal {
+    position: absolute;
+    left: -64px;
+    bottom: -48px;
+    width: 156px;
+    height: 156px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--ground);
+    text-align: center;
+  }
+
+  .seal-art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  /* Center disk that holds the text, above the line-work */
+  .seal::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    background: var(--ground);
+    border: 1px solid var(--accent);
+  }
+
+  .seal-year,
+  .seal-label {
+    position: relative;
+    z-index: 2;
+  }
+
+  .seal-year {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .seal-label {
+    max-width: 4.5rem;
+    margin-top: 0.2rem;
+    font-size: 0.5625rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 1.25;
+    text-transform: uppercase;
+    color: var(--on-dark-heading);
   }
 
   @media (max-width: 860px) {
@@ -55,13 +132,36 @@ import { hero, site } from '../data/content';
       gap: 0;
     }
 
-    /* On phones the photo sits small, above the eyebrow */
-    .portrait {
+    /* On phones the photo and seal sit side by side, above the eyebrow */
+    .portrait-wrap {
       order: -1;
-      width: 112px;
-      border-radius: 20px;
-      box-shadow: 0 0 0 4px var(--band);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
       margin-bottom: 1.75rem;
+    }
+
+    .portrait {
+      width: 112px;
+      border-radius: var(--radius);
+      box-shadow: 0 0 0 4px var(--band);
+    }
+
+    .seal {
+      position: relative;
+      left: auto;
+      bottom: auto;
+      width: 128px;
+      height: 128px;
+    }
+
+    .seal::before {
+      width: 76px;
+      height: 76px;
+    }
+
+    .seal-year {
+      font-size: 0.75rem;
     }
   }
 
