@@ -23,7 +23,7 @@ export const hero = {
   eyebrow: 'Agentic AI · Product Leadership · B2B SaaS',
   headline: 'Building AI into manufacturing software, and into how product teams work.',
   // Trimmed for scanning: the impact strip right below carries the ARR, team and acquisition numbers.
-  bio: "I'm a Senior Product Owner at Advantive with 8+ years in B2B SaaS, digital commerce and fintech. My AI Command Center won a 2026 AI Impact Award; two months later I replaced it with an 8-agent Claude team.",
+  bio: "I'm a Senior Product Owner at Advantive with 8+ years in B2B SaaS, digital commerce and fintech. My AI Command Center earned Advantive's August 2026 AI Impact Award. Two months later I replaced it with an 8-agent Claude team.",
   status: 'Based in St. Augustine, FL',
 };
 
@@ -65,9 +65,9 @@ export const work = {
       highlight: { value: '12–15 hrs', label: 'saved per week by the agent team' },
       tabLabel: 'My AI workflow',
       title: 'From a Command Center to an 8-agent team',
-      tag: '2026 AI Impact Award',
+      tag: 'August 2026 AI Impact Award',
       nutshell:
-        'My Command Center won a 2026 AI Impact Award in August. Two months later I had retired it for an orchestrated team of Claude agents.',
+        'My Command Center won the August 2026 AI Impact Award. Two months later I had retired it for an orchestrated team of Claude agents.',
       challenge:
         'One product owner carrying backlogs, releases, competitive tracking and stakeholder updates for global teams in three regions.',
       action:
