@@ -41,6 +41,7 @@ export interface WorkCase {
   tag?: string;
   nutshell: string;
   challenge: string;
+  solvedLabel?: string; // defaults to 'How I solved it'
   action: string;
   results: string; // html
   // Headline result shown large at the top of the card. Uses figures from `results` only.
@@ -116,9 +117,10 @@ export const work = {
       highlight: { value: 'Zero', label: 'readable student data stored' },
       tabLabel: 'Hall pass',
       title: 'A privacy-first hall pass for schools',
-      tag: 'Independent product · Pre-launch',
+      tag: 'Co-founded with my wife · Pre-launch',
       nutshell:
-        "A teacher's idea, taken from concept to a deployed web app, so students can leave class without interrupting it.",
+        'Her idea, from 12 years in the classroom; my build. Together we took it from concept to a deployed web app so students can leave class without interrupting it.',
+      solvedLabel: 'How we solved it',
       challenge:
         'Every hall pass pulled a teacher out of instruction, paper logs failed during lockdowns and drills, and schools are wary of vendors holding student data.',
       action:

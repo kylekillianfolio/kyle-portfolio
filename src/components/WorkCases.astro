@@ -72,14 +72,14 @@ const num = (i: number) => String(i + 1).padStart(2, '0');
             )}
 
             <details class="more">
-              <summary>The problem and how I solved it</summary>
+              <summary>The problem and {(c.solvedLabel ?? 'How I solved it').replace(/^How/, 'how')}</summary>
               <dl class="case-cols">
                 <div>
                   <dt>The problem</dt>
                   <dd>{c.challenge}</dd>
                 </div>
                 <div>
-                  <dt>How I solved it</dt>
+                  <dt>{c.solvedLabel ?? 'How I solved it'}</dt>
                   <dd>{c.action}</dd>
                 </div>
               </dl>
