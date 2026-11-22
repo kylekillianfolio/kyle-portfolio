@@ -24,7 +24,7 @@ export const hero = {
   headline: 'Building AI into manufacturing software, and into how product teams work.',
   // Trimmed for scanning: the impact strip right below carries the ARR, team and acquisition numbers.
   bio: "I'm a Senior Product Owner at Advantive with 8+ years in B2B SaaS, digital commerce and fintech, and I run my own work with an 8-agent Claude team that won a 2026 AI Impact Award.",
-  status: 'Open to AI product and product leadership roles · St. Augustine, FL · Remote',
+  status: 'Based in St. Augustine, FL',
 };
 
 export const impact = [
@@ -197,7 +197,7 @@ export const experience = {
 
 export const contact = {
   heading: "Let's talk",
-  body: "I'm looking for AI product and product leadership roles where AI strategy meets real delivery. Remote, or based in Northeast Florida.",
+  body: "Want to talk agent teams, AI product, or how this site was built? I'm always up for comparing notes.",
   footer: 'This site was designed and built with Claude Code.',
   footerAside:
     "Honestly, I'm not sure which Claude license I use more. My agent team and Command Center run on my work one; this site and my hall pass app were built on my personal one.",
